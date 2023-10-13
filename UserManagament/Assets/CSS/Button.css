@@ -1,0 +1,47 @@
+﻿.button {
+	color: @ControlText;
+	background-color: @Control;
+	border: 1px solid @ControlBorder;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+	.button:hover {
+		background-color: @ControlBorder/0.1;
+	}
+
+	.button:focus {
+		border: 1px solid @Blue;
+	}
+
+	.button:active {
+		background-color: @ControlBorder/0.3;
+	}
+
+	.button:disabled {
+		background-color: @ControlBorder/0.1;
+		color: @DisabledText;
+	}
+
+.icon {
+	width: 16px;
+	height: 16px;
+	min-width: 16px;
+	min-height: 16px;
+	margin: 0 4px 0 0;
+}
+
+.small {
+	font-size: 0.8em;
+	padding: 2px 8px;
+}
+
+.default {
+	padding: 4px 12px;
+}
+
+.large {
+	font-size: 1.2em;
+	padding: 6px 16px;
+}

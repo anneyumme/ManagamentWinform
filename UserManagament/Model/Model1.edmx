@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MidTermModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Login_History">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_user" Type="bigint" Nullable="false" />
+          <Property Name="Info_login" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="User_List">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="First_name" Type="varchar" MaxLength="50" />
+          <Property Name="Last_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="Age" Type="varchar" MaxLength="50" />
+          <Property Name="Phone_number" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="User_pass" Type="nvarchar(max)" />
+          <Property Name="Status" Type="nchar" MaxLength="10" />
+          <Property Name="User_image" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_Login_History_User_List">
+          <End Role="User_List" Type="Self.User_List" Multiplicity="1" />
+          <End Role="Login_History" Type="Self.Login_History" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_List">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Login_History">
+              <PropertyRef Name="ID_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MidTermModelStoreContainer">
+          <EntitySet Name="Login_History" EntityType="Self.Login_History" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User_List" EntityType="Self.User_List" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Login_History_User_List" Association="Self.FK_Login_History_User_List">
+            <End Role="User_List" EntitySet="User_List" />
+            <End Role="Login_History" EntitySet="Login_History" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MidTermModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Login_History">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_user" Type="Int64" Nullable="false" />
+          <Property Name="Info_login" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="User_List" Relationship="Self.FK_Login_History_User_List" FromRole="Login_History" ToRole="User_List" />
+        </EntityType>
+        <EntityType Name="User_List">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="First_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="User_pass" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="User_image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Login_History" Relationship="Self.FK_Login_History_User_List" FromRole="User_List" ToRole="Login_History" />
+          <Property Name="Phone_number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Age" Type="String" Unicode="false" FixedLength="false" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Login_History_User_List">
+          <End Role="User_List" Type="Self.User_List" Multiplicity="1" />
+          <End Role="Login_History" Type="Self.Login_History" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_List">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Login_History">
+              <PropertyRef Name="ID_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MidTermEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Login_History" EntityType="Self.Login_History" />
+          <EntitySet Name="User_List" EntityType="Self.User_List" />
+          <AssociationSet Name="FK_Login_History_User_List" Association="Self.FK_Login_History_User_List">
+            <End Role="User_List" EntitySet="User_List" />
+            <End Role="Login_History" EntitySet="Login_History" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MidTermModelStoreContainer" CdmEntityContainer="MidTermEntities">
+          <EntitySetMapping Name="Login_History">
+            <EntityTypeMapping TypeName="MidTermModel.Login_History">
+              <MappingFragment StoreEntitySet="Login_History">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_user" ColumnName="ID_user" />
+                <ScalarProperty Name="Info_login" ColumnName="Info_login" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User_List">
+            <EntityTypeMapping TypeName="MidTermModel.User_List">
+              <MappingFragment StoreEntitySet="User_List">
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Phone_number" ColumnName="Phone_number" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="First_name" ColumnName="First_name" />
+                <ScalarProperty Name="Last_name" ColumnName="Last_name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="User_pass" ColumnName="User_pass" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="User_image" ColumnName="User_image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

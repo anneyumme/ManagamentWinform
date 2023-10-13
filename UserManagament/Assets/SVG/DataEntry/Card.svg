@@ -1,0 +1,7 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 32 32" xml:space="preserve">
+<style type="text/css">
+	.Blue{fill:#1177D7;}
+</style>
+	<path class="Blue" d="M29,6H3C2.4,6,2,6.5,2,7v5v4v9c0,0.5,0.4,1,1,1h26c0.6,0,1-0.5,1-1v-9v-4V7C30,6.5,29.6,6,29,6z M28,24H4v-8
+		h24V24z M4,12V8h24v4H4z"/>
+</svg>

@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{73E5B8EA-1980-4553-9BD2-C69C7A1226B8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UserManagament</RootNamespace>
+    <AssemblyName>UserManagament</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="DevExpress.BonusSkins.v23.1" />
+    <Reference Include="DevExpress.Data.Desktop.v23.1" />
+    <Reference Include="DevExpress.Data.v23.1" />
+    <Reference Include="DevExpress.Dialogs.v23.1.Core, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v23.1" />
+    <Reference Include="DevExpress.Sparkline.v23.1.Core" />
+    <Reference Include="DevExpress.XtraDialogs.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v23.1" />
+    <Reference Include="DevExpress.Printing.v23.1.Core" />
+    <Reference Include="DevExpress.Drawing.v23.1" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="mscorlib" />
+    <Reference Include="DevExpress.XtraGrid.v23.1" />
+    <Reference Include="DevExpress.XtraLayout.v23.1" />
+    <Reference Include="DevExpress.XtraBars.v23.1" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="DevExpress.XtraTreeList.v23.1" />
+    <Reference Include="DevExpress.Mvvm.v23.1" />
+    <Reference Include="EntityFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Edit_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Edit_form.Designer.cs">
+      <DependentUpon>Edit_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogInfomation.cs" />
+    <Compile Include="Model\Login_History.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\User_List.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NotificationArgs.cs" />
+    <Compile Include="SHA256Password.cs" />
+    <Compile Include="SplashScreen2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreen2.Designer.cs">
+      <DependentUpon>SplashScreen2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserLogin.Designer.cs">
+      <DependentUpon>UserLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WaitForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaitForm1.Designer.cs">
+      <DependentUpon>WaitForm1.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Edit_form.resx">
+      <DependentUpon>Edit_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreen2.resx">
+      <DependentUpon>SplashScreen2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserLogin.resx">
+      <DependentUpon>UserLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="RibbonForm1.resx">
+      <DependentUpon>RibbonForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaitForm1.resx">
+      <DependentUpon>WaitForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.config" />
+    <EntityDeploy Include="Model\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\UserManagament.Model.Login_History.datasource" />
+    <None Include="Properties\DataSources\UserManagament.Model.User_List.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Editors\EditBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Assets\Toolbox\Root.cs" />
+    <EmbeddedResource Include="Assets\Toolbox\EditBox.bmp" />
+    <EmbeddedResource Include="Assets\HTML\EditBox.html" />
+    <EmbeddedResource Include="Assets\CSS\EditBox.css" />
+    <Compile Include="RibbonForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RibbonForm1.Designer.cs">
+      <DependentUpon>RibbonForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\HtmlCssAsset.cs" />
+    <Compile Include="Editors\Button.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <EmbeddedResource Include="Assets\Toolbox\Button.bmp" />
+    <Compile Include="Editors\Base\ButtonBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Editors\Base\ButtonImageOptionsBase.cs" />
+    <EmbeddedResource Include="Assets\HTML\Button.html" />
+    <EmbeddedResource Include="Assets\CSS\Button.css" />
+    <Compile Include="Editors\PasswordBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <EmbeddedResource Include="Assets\Toolbox\PasswordBox.bmp" />
+    <EmbeddedResource Include="Assets\HTML\PasswordBox.html" />
+    <EmbeddedResource Include="Assets\CSS\PasswordBox.css" />
+    <Compile Include="Utilities\Password.cs" />
+    <Compile Include="Images\DataEntry.cs" />
+    <EmbeddedResource Include="Assets\SVG\DataEntry\Card.svg" />
+    <EmbeddedResource Include="Assets\SVG\DataEntry\Customers.svg" />
+    <EmbeddedResource Include="Assets\SVG\DataEntry\Email.svg" />
+    <EmbeddedResource Include="Assets\SVG\DataEntry\Employees.svg" />
+    <EmbeddedResource Include="Assets\SVG\DataEntry\Key.svg" />
+    <EmbeddedResource Include="Assets\SVG\DataEntry\Opportunities.svg" />
+    <EmbeddedResource Include="Assets\SVG\DataEntry\Phone.svg" />
+    <EmbeddedResource Include="Assets\SVG\DataEntry\Products.svg" />
+    <EmbeddedResource Include="Assets\SVG\DataEntry\Sales.svg" />
+    <EmbeddedResource Include="Assets\SVG\DataEntry\Tasks.svg" />
+    <EmbeddedResource Include="Assets\SVG\DataEntry\World.svg" />
+    <Compile Include="Images\UIElements.cs" />
+    <EmbeddedResource Include="Assets\SVG\UIElements\Check.svg" />
+    <EmbeddedResource Include="Assets\SVG\UIElements\Close.svg" />
+    <EmbeddedResource Include="Assets\SVG\UIElements\Copy.svg" />
+    <EmbeddedResource Include="Assets\SVG\UIElements\DropDown.svg" />
+    <EmbeddedResource Include="Assets\SVG\UIElements\Hide.svg" />
+    <EmbeddedResource Include="Assets\SVG\UIElements\Info.svg" />
+    <EmbeddedResource Include="Assets\SVG\UIElements\Search.svg" />
+    <EmbeddedResource Include="Assets\SVG\UIElements\Show.svg" />
+    <Compile Include="Components\StrengthIndicator.cs" />
+    <Compile Include="Components\Base\ProgressIndicatorBase.cs" />
+    <Compile Include="UserControls\EmployeeDetailsSimple.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\EmployeeDetailsSimple.Designer.cs">
+      <DependentUpon>EmployeeDetailsSimple.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UserControls\EmployeeDetailsSimple.resx">
+      <DependentUpon>EmployeeDetailsSimple.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Models\Entity.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\EmployeeSampleData.cs" />
+    <Compile Include="Models\Address.cs" />
+    <Compile Include="Images\Users.cs" />
+    <EmbeddedResource Include="Assets\PNG\Users\SampleUser1.png" />
+    <EmbeddedResource Include="Assets\PNG\Users\SampleUser2.png" />
+    <EmbeddedResource Include="Assets\PNG\Users\SampleUser3.png" />
+    <EmbeddedResource Include="Assets\PNG\Users\Unknown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\doublelast.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\security_key.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actions_user.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\about.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actions_deletecircled.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newemployee.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actions_edit.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.svg" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Model\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <None Include="Resources\about1.svg" />
+    <None Include="Resources\insertimage.svg" />
+    <None Include="Resources\actions_refresh.svg" />
+    <None Include="Resources\actions_edit1.svg" />
+    <None Include="Resources\refreshallpivottable.svg" />
+    <None Include="Resources\clearall.svg" />
+    <None Include="Resources\save1.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
